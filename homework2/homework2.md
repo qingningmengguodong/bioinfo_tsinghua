@@ -11,6 +11,6 @@
 3. ```shell
    grep -v "^#" 1.gtf | awk '{print $3}' | sort | uniq -c | sort -n
    ```
-   ![Fig 2](https://github.com/qingningmengguodong/bioinfo_tsinghua/blob/master/homework2/img/fig1.png "Fig 2")
+   ![Fig 2](https://github.com/qingningmengguodong/bioinfo_tsinghua/blob/master/homework2/img/fig2.png "Fig 2")
 
    
