@@ -32,3 +32,4 @@ Minimum-evolution:
 
 ![alt text](https://github.com/qingningmengguodong/bioinfo_tsinghua/blob/master/img/minimum.png)
 
+用Neighbor-joining和Minimum-evolution得到的树结构基本一致，而用Maximum-likelihood得到的树结构与其他两种方法差异较大。
