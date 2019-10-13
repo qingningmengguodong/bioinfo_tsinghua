@@ -20,8 +20,15 @@
 
 ---
 
-![!alt text](https://github.com/qingningmengguodong/bioinfo_tsinghua/blob/master/img/maximum_likelihood.png)
+Maximum -likelihood:
+
+![alt text](https://github.com/qingningmengguodong/bioinfo_tsinghua/blob/master/img/maximum_likelihood.png)
+
+Neighbor-joining:
 
 ![alt text](https://github.com/qingningmengguodong/bioinfo_tsinghua/blob/master/img/neighbourhood.png)
 
+Minimum-evolution:
+
 ![alt text](https://github.com/qingningmengguodong/bioinfo_tsinghua/blob/master/img/minimum.png)
+
