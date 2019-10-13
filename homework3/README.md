@@ -22,7 +22,7 @@
 
 Maximum -likelihood:
 
-![alt text](https://github.com/qingningmengguodong/bioinfo_tsinghua/blob/master/img/maximum_likelihood.png)
+![alt text](https://github.com/qingningmengguodong/bioinfo_tsinghua/blob/master/img/max_likelihood.png)
 
 Neighbor-joining:
 
