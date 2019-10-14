@@ -1,5 +1,3 @@
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>  
-
 # Homework 3
 
 使用Non-RefSeq protein数据库进行检索，过程和结果如下:
