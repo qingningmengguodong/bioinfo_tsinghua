@@ -1,3 +1,5 @@
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>  
+
 # Homework 3
 
 使用Non-RefSeq protein数据库进行检索，过程和结果如下:
@@ -25,18 +27,20 @@ PAM有对称和不对称两种形式的原因:
 这张不对称的“PAM250”出现在Dayhoff教授1978年的论文中。严格来说，这个矩阵并不能称为PAM矩阵，原文的表述是“Mutation probability matrix for the evolutionary distance of 250 PAMs"。
 
 设mutation matrix第$i$行第$j$列的元素为$M(i,j)$，氨基酸$i$出现的频率为$f(i)$，则有
-
-$$f(j)M(i,j)=f(i)M(j,i)$$
-
+$$
+f(j)M(i,j)=f(i)M(j,i)
+$$
 利用数学归纳法可以得到
-
-$$f(j)M^n(i,j)=f(i)M^n(j,i)$$
-
+$$
+f(j)M^n(i,j)=f(i)M^n(j,i)
+$$
 $PAM_{n}$第$i$行第$j$列的元素的计算公式为
-
-$PAM_n(i,j)=\log\frac{f(j)M^n(i,j)}{f(j)f(i)}=\log\frac{f(i)M^n(j,i)}{f(i)f(j)}=PAM_n(j,i)$
-
+$$
+PAM_n(i,j)=\log\frac{f(j)M^n(i,j)}{f(j)f(i)}=\log\frac{f(i)M^n(j,i)}{f(i)f(j)}=PAM_n(j,i)
+$$
 故按此公式计算出的$PAM_n$矩阵是对称的。
+
+
 
 ---
 
