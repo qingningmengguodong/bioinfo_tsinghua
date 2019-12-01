@@ -13,3 +13,5 @@
    3. Number of motifs to find:对于每种长度的motif，想要找到的数目
 
 2. 分析结果
+   满足Fold Change(vs Control)>=8且p-value(vs Control)<1e-8的peaks存放在part_ans.peak文件中。
+   满足p-value<1e-10的motif只有一个，在homerResults.html的第一行。
