@@ -23,8 +23,7 @@ train_data<-all_data[indices,]
 train_classes<-all_classes[indices]
 test_data<-all_data[-indices,]
 test_classes<-all_classes[-indices]
-
-rf_classifier=randomForest(train_data,train_classes,trees=100)
+rf_classifier=randomForest(train_data,train_classes,trees=1)
 
 predicted_classes<-predict(rf_classifier,test_data)
 print(test_classes)
