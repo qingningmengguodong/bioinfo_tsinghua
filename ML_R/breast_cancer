@@ -1,0 +1,60 @@
+library(caret)
+
+for(pkg in c('randomForest', 'ROCR', 'GGally', 'mlbench')){
+  if(!require(pkg, character.only=TRUE)){
+    install.packages(pkg)
+    library(pkg, character.only=TRUE)
+  }
+}
+
+set.seed(1234)
+data('BreastCancer')
+
+df<-na.omit(BreastCancer)
+all_data<-df[,2:(ncol(df)-1)]
+all_classes<-df$Class
+
+n_samples<-nrow(all_data)
+n_train<-floor(n_samples*0.8)
+indices<-sample(1:n_samples)
+indices<-indices[1:n_train]
+
+train_data<-all_data[indices,]
+train_classes<-all_classes[indices]
+test_data<-all_data[-indices,]
+test_classes<-all_classes[-indices]
+
+rf_classifier=randomForest(train_data,train_classes,trees=100)
+
+predicted_classes<-predict(rf_classifier,test_data)
+print(test_classes)
+print(predicted_classes)
+
+positive_class<-'benign'
+TP<-sum((predicted_classes==positive_class)&(test_classes==positive_class))
+FP<-sum((predicted_classes==positive_class)&(test_classes!=positive_class))
+FN<-sum((predicted_classes!=positive_class)&(test_classes==positive_class))
+TN<-sum((predicted_classes!=positive_class)&(test_classes!=positive_class))
+confusion<-matrix(c(TP,FP,FN,TN),nrow=2,ncol=2,byrow=TRUE)
+colnames(confusion)<-c('True benign', 'True malignant')
+rownames(confusion)<-c('Predicted benign', 'Predicted malignant')
+
+cat('accuracy=',(TP+TN)/(TP+TN+FN+TN),'\n')
+cat('sensitivity=',TP/(TP+FN),'\n')
+cat('positive predicted value=',TP/(TP+FP),'\n')
+cat('specificity=',TN/(TN+FP),'\n')
+
+predicted_probs<-predict(rf_classifier,test_data,type="prob")
+head(predicted_probs)
+test_labels<-vector('integer',length(test_classes))
+test_labels[test_classes!=positive_class]<-0
+test_labels[test_classes==positive_class]<-1
+pred<-prediction(predicted_probs[,positive_class],test_labels)
+
+pdf("RF.pdf")
+roc<-performance(pred,'tpr','fpr')
+plot(roc,main='ROC curve')
+dev.off()
+auc<-performance(pred,'auc')
+cat('auc=',auc@y.values[[1]],'\n')
+
